@@ -1,26 +1,40 @@
 package Lv1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         while(true){
             //양의 정수를 입력받기
-            //InputMismatchException 처리하기
-            System.out.print("첫 번째 숫자를 입력하세요: ");
-            int x = sc.nextInt();
-            while (x < 0) {
-                System.out.print("양의 정수를 입력해 주세요 : ");
-                x = sc.nextInt();
+            //TODO: InputMismatchException 처리하기
+            int x;
+            while(true){
+                try{
+                    System.out.print("첫 번째 숫자를 입력하세요: ");
+                    x = sc.nextInt();
+                    if(x >= 0) break;
+                    else System.out.println("양의 정수를 입력해 주세요 : ");
+                }
+                catch (InputMismatchException e){
+                    System.out.println("입력의 형식을 지켜주세요.");
+                    sc.nextLine(); //버퍼 비우기
+                }
             }
 
-            System.out.print("두 번째 숫자를 입력하세요: ");
-            int y = sc.nextInt();
-            while (y < 0) {
-                System.out.print("양의 정수를 입력해 주세요 : ");
-                y = sc.nextInt();
+            int y;
+            while(true){
+                try{
+                    System.out.print("두 번째 숫자를 입력하세요: ");
+                    y = sc.nextInt();
+                    if(y >= 0) break;
+                    else System.out.println("양의 정수를 입력해 주세요 : ");
+                }
+                catch (InputMismatchException e){
+                    System.out.println("입력의 형식을 지켜주세요.");
+                    sc.nextLine(); //버퍼 비우기
+                }
             }
 
             System.out.print("사칙연산 기호를 입력하세요 (+ , - , *, / ): ");
@@ -31,8 +45,8 @@ public class App {
             }
 
             int result = 0;
+            boolean flag = true; //연산 결과가 없는 경우에는 false : 0으로 나누는 경우
 
-            boolean flag = true;
             switch (op) {
                 case '+':
                     result = x + y;
