@@ -57,11 +57,13 @@ public class App {
             else if(op == '/'){opCode = OperatorType.DIV;}
 
             try {
-                Object result = calc.calculate(x, y, opCode);
-                System.out.println("결과 : " + result.toString());
+                double result = calc.calculate(x, y, opCode);
+                System.out.println("결과 : " + result);
             }
             catch (ArithmeticException e){
                 System.out.println("0으로 나눌 수 없습니다.");
+                //double의 경우 나누기 0 => Infinity
+                //0을 0으로 나누는 경우 => NaN?(Not A Number)
             }
             catch (NullPointerException e){
                 System.out.println("연산자가 지정되지 않았습니다. ");
@@ -70,7 +72,7 @@ public class App {
             //저장된 연산 결과들 중 Scanner로 입력받은 값보다 큰 결과값 들을 출력
             double max = x;
             if(max < y) max = y;
-            System.out.println("입력받은 값보다 큰 결과값 들을 출력");
+            System.out.println("입력받은 값보다 큰 결과값 들 출력");
             calc.bigElement(max);
 
             //반복문 종료

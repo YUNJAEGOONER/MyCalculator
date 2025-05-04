@@ -50,20 +50,6 @@ public class App {
                 op = sc.next().charAt(0);
             }
 
-            //getter와 setter를 활용해보기
-            //getter
-            List <Integer> myresult = calc.getArrList();
-            for(Integer v : myresult){
-                System.out.println("i번째 result" + v);
-            }
-
-            //setter
-            List <Integer> newArr = new ArrayList<Integer>(List.of(321,456,789,123,443));
-            calc.setArrList(newArr);
-
-            //저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제
-            calc.removeResult();
-            
             //연산 수행 역할 -> Calculator 클래스가 담당
             try{
                 int result = calc.calculate(x, y, op);
@@ -72,8 +58,25 @@ public class App {
             catch (ArithmeticException e){
                 System.out.println("0으로 나눌 수 없습니다.");
             }
-            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : ");
 
+            //getter와 setter를 활용해보기
+            //getter
+            List <Integer> myresult = calc.getArrList();
+            int i = 0;
+//            for(Integer v : myresult){
+//                System.out.println(i + "번째 result : " + v);
+//                i ++;
+//            }
+
+            //setter
+            List <Integer> newArr = new ArrayList<Integer>(List.of(321,456,789,123,443));
+            calc.setArrList(newArr);
+
+            //저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제
+            calc.removeResult();
+
+            //반복문 종료
+            System.out.print("더 계산하시겠습니까? (exit 입력 시 종료) : ");
             sc.nextLine(); // 버퍼 비우기
             String cmd = sc.nextLine(); //sc.next()로 입력받기...
             if(cmd.equals("exit")){

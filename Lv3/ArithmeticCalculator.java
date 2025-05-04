@@ -50,5 +50,4 @@ public class ArithmeticCalculator {
         System.out.println(filtered);
     }
 
-
 }

@@ -26,7 +26,7 @@ public class Calculator {
                 result = x / y;
         }
         arrList.add(result); //연산 결과를 저장
-        return result;
+        return result; //결과값 반환
     }
 
     public void setArrList(List<Integer> arrList){
